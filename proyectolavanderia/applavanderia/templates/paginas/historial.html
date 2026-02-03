@@ -1,0 +1,140 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6"><h2>Historial<b> Ventas</b></h2></div>
+                    <div class="col-sm-6">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-info active">
+                                <input type="radio" name="status" value="all" checked="checked"> Todo
+                            </label>
+                            <label class="btn btn-success">
+                                <input type="radio" name="status" value="a" checked="checked"> Ventas
+                            </label>
+                            <label class="btn btn-danger">
+                                <input type="radio" name="status" value="inactive">Facturas
+                            </label>
+                            							
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Monto</th>
+                        <th>Descripcion</th>
+                        <th><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-up-fill" viewBox="0 0 16 16">
+                            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.354-5.854 1.5 1.5a.5.5 0 0 1-.708.708L13 11.707V14.5a.5.5 0 1 1-1 0v-2.793l-.646.647a.5.5 0 0 1-.708-.707l1.5-1.5a.5.5 0 0 1 .708 0Z"/>
+                            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+                            <path d="m8 3.293 4.712 4.712A4.5 4.5 0 0 0 8.758 15H3.5A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+                          </svg></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="a">
+                        <td>001</td>
+                        <td><a href="#">2023-07-23</a></td>
+                        <td>57.000</td>
+                        <td>Vestido de Gala</td>
+                        <td><span class="label label-success">Ventas</span></td> 
+                    </tr>
+                    <tr data-status="a">
+                        <td>002</td>
+                        <td><a href="#">2023-08-29</a></td>
+                        <td>60.000</td>
+                        <td>Traje Gala</td>
+                        <td><span class="label label-success">Ventas</span></td> 
+                    </tr>
+                    <tr data-status="a">
+                        <td>003</td>
+                        <td><a href="#">2023-06-20</a></td>
+                        <td>30.000</td>
+                        <td>Saco de Lana</td>
+                        <td><span class="label label-success">Ventas</span></td> 
+                    </tr>
+                    <tr data-status="a">
+                        <td>004</td>
+                        <td><a href="#">2023-08-31</a></td>
+                        <td>57.000</td>
+                        <td>Traje de Paño</td>
+                        <td><span class="label label-success">Ventas</span></td> 
+                    </tr>
+                    <tr data-status="a">
+                        <td>005</td>
+                        <td><a href="#">2023-08-29</a></td>
+                        <td>47.000</td>
+                        <td>Blazer</td>
+                        <td><span class="label label-success">Ventas</span></td> 
+                    </tr>
+            
+                </tbody>
+            </table>
+
+
+        <div class="col-sm-6"><h2>Historial<b> Facturas</b></h2></div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha y Hora</th>
+                        <th>Estado Factura</th>
+                        <th>Observacion</th>
+                        <th> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-up-fill" viewBox="0 0 16 16">
+                            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.354-5.854 1.5 1.5a.5.5 0 0 1-.708.708L13 11.707V14.5a.5.5 0 1 1-1 0v-2.793l-.646.647a.5.5 0 0 1-.708-.707l1.5-1.5a.5.5 0 0 1 .708 0Z"/>
+                            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+                            <path d="m8 3.293 4.712 4.712A4.5 4.5 0 0 0 8.758 15H3.5A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+                          </svg></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-status="inactive">
+                        <td>F001</td>
+                        <td><a href="#">2023-10-11 12:30:00</a></td>
+                        <td>Pendiente</td>
+                        <td>Con descuento</td>
+                        <td><span class="label label-danger">Facturas</span></td> 
+                    </tr>
+                    <tr data-status="inactive">
+                        <td>F002</td>
+                        <td><a href="#">2023-06-20 12:30:00</a></td>
+                        <td>Cancelado</td>
+                        <td>Sin descuento</td>
+                        <td><span class="label label-danger">Facturas</span></td> 
+                    </tr>
+                    <tr data-status="inactive">
+                        <td>F003</td>
+                        <td><a href="#">2023-08-11 12:30:00</a></td>
+                        <td>Abonado</td>
+                        <td>Con descuento</td>
+                        <td><span class="label label-danger">Facturas</span></td> 
+                    </tr>
+                    <tr data-status="inactive">
+                        <td>F004</td>
+                        <td><a href="#">2023-07-22 12:30:00</a></td>
+                        <td>Cancelado</td>
+                        <td>Sin descuento</td>
+                        <td><span class="label label-danger">Facturas</span></td> 
+                    </tr>
+                    <tr data-status="inactive">
+                        <td>F005</td>
+                        <td><a href="#">2023-05-20 12:30:00</a></td>
+                        <td>Pendiente</td>
+                        <td>Con impuestos</td>
+                        <td><span class="label label-danger">Facturas</span></td> 
+                    </tr>
+            
+                </tbody>
+            </table>
+        </div> 
+    </div>   
+</div>           
+
+{% endblock %}

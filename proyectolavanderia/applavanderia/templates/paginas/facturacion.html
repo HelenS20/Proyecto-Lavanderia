@@ -1,0 +1,54 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<div class="container">
+    <h1>Facturación</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th class="text-right">Precio</th>
+                <th class="text-right">Edición</th>
+            </tr>
+        </thead>
+        <tbody id="datos">
+          
+            <tr>
+                <td>001</td>
+                <td>Product A</td>
+                <td>Category 1</td>
+                <td class="text-right">$19.99</td>
+                <td class="text-right">
+                    <button class="btn btn-info" data-toggle="modal" data-target="#ModalEditar">Editar</button>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#ModalConfirmarBorrar">Borrar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Product B</td>
+                <td>Category 2</td>
+                <td class="text-right">$29.99</td>
+                <td class="text-right">
+                    <button class="btn btn-info" data-toggle="modal" data-target="#ModalEditar">Editar</button>
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#ModalConfirmarBorrar">Borrar</button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <button type="button" id="btnAgregar" class="btn btn-success">Agregar</button>
+    <hr>
+    <button type="button" id="btnFinalizar" class="btn btn-success">Finalizar</button>
+</div>
+
+<div class="modal fade" id="ModalEditar" tabindex="-1" role="dialog">
+    
+</div>
+
+<div class="modal fade" id="ModalConfirmarBorrar" tabindex="-1" role="dialog">
+    
+</div>
+
+{% endblock %}

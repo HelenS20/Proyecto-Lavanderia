@@ -1,0 +1,442 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pagetitle">
+    <h1>Bienvenido Administrador</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+
+      <!-- Left side columns -->
+      <div class="col-lg-8">
+        <div class="row">
+
+          <!-- Sales Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filtro</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Hoy</a></li>
+                  <li><a class="dropdown-item" href="#">Mes</a></li>
+                  <li><a class="dropdown-item" href="#">Año</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Servicios <span>| Hoy</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-cart"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>145</h6>
+                    <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">incremento</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Sales Card -->
+
+          <!-- Revenue Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filtro</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Hoy</a></li>
+                  <li><a class="dropdown-item" href="#">Mes</a></li>
+                  <li><a class="dropdown-item" href="#">Año</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Ganancias <span>| Mes</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-currency-dollar"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>$200.333</h6>
+                    <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">incremento</span>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- End Revenue Card -->
+
+          <!-- Customers Card -->
+          <div class="col-xxl-4 col-xl-12">
+
+            <div class="card info-card customers-card">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filtro</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Hoy</a></li>
+                  <li><a class="dropdown-item" href="#">Mes</a></li>
+                  <li><a class="dropdown-item" href="#">Año</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Clientes <span>| Año</span></h5>
+
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>1044</h6>
+                    <span class="text-danger small pt-1 fw-bold">0.1%</span> <span class="text-muted small pt-2 ps-1">incremento</span>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div><!-- End Customers Card -->
+
+          <!-- Reports -->
+          <div class="col-12">
+            <div class="card">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filtro</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Hoy</a></li>
+                  <li><a class="dropdown-item" href="#">Mes</a></li>
+                  <li><a class="dropdown-item" href="#">Año</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Reportes <span>/Hoy</span></h5>
+
+                <!-- Line Chart -->
+                <div id="reportsChart"></div>
+
+                <script>
+                  document.addEventListener("DOMContentLoaded", () => {
+                    new ApexCharts(document.querySelector("#reportsChart"), {
+                      series: [{
+                        name: 'Servicios',
+                        data: [31, 40, 28, 51, 42, 82, 56],
+                      }, {
+                        name: 'Ganancias',
+                        data: [11, 32, 45, 32, 34, 52, 41]
+                      }, {
+                        name: 'Clientes',
+                        data: [15, 11, 32, 18, 9, 24, 11]
+                      }],
+                      chart: {
+                        height: 350,
+                        type: 'area',
+                        toolbar: {
+                          show: false
+                        },
+                      },
+                      markers: {
+                        size: 4
+                      },
+                      colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                      fill: {
+                        type: "gradient",
+                        gradient: {
+                          shadeIntensity: 1,
+                          opacityFrom: 0.3,
+                          opacityTo: 0.4,
+                          stops: [0, 90, 100]
+                        }
+                      },
+                      dataLabels: {
+                        enabled: false
+                      },
+                      stroke: {
+                        curve: 'smooth',
+                        width: 2
+                      },
+                      xaxis: {
+                        type: 'datetime',
+                        categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                      },
+                      tooltip: {
+                        x: {
+                          format: 'dd/MM/yy HH:mm'
+                        },
+                      }
+                    }).render();
+                  });
+                </script>
+                <!-- End Line Chart -->
+
+              </div>
+
+            </div>
+          </div><!-- End Reports -->
+
+          <!-- Recent Sales -->
+          <div class="col-12">
+            <div class="card recent-sales overflow-auto">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filtro</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Hoy</a></li>
+                  <li><a class="dropdown-item" href="#">Mes</a></li>
+                  <li><a class="dropdown-item" href="#">Año</a></li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Servicios recientes <span>| Hoy</span></h5>
+
+                <table class="table table-borderless datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Cliente</th>
+                      <th scope="col">Servicio</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Prenda</th>
+                      <th scope="col">Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><a href="#">#2457</a></th>
+                      <td>Ximena Muñoz</td>
+                      <td><a href="#" class="text-primary">Planchado</a></td>
+                      <td>$12.000</td>
+                      <td>Jeans</td>
+                      <td><span class="badge bg-success">Cancelado</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><a href="#">#2147</a></th>
+                      <td>Helen Sanchez</td>
+                      <td><a href="#" class="text-primary">Lavado y tintoreria</a></td>
+                      <td>$47.000</td>
+                      <td>Vestido</td>
+                      <td><span class="badge bg-warning">Pendiente</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><a href="#">#2049</a></th>
+                      <td>Angel Rocha</td>
+                      <td><a href="#" class="text-primary">Lavado</a></td>
+                      <td>$50.000</td>
+                      <td>Cobija</td>
+                      <td><span class="badge bg-success">Cancelado</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><a href="#">#2644</a></th>
+                      <td>Sofia Vivas</td>
+                      <td><a href="#" class="text-primar">Planchado</a></td>
+                      <td>$20.000</td>
+                      <td>Traje</td>
+                      <td><span class="badge bg-danger">Retraso</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><a href="#">#2644</a></th>
+                      <td>Jennifer Martinez</td>
+                      <td><a href="#" class="text-primary">Tintoreria</a></td>
+                      <td>$65.000</td>
+                      <td>Vestido</td>
+                      <td><span class="badge bg-success">Cancelado</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+          </div><!-- End Recent Sales -->
+        </div>
+      </div><!-- End Left side columns -->
+
+      <!-- Right side columns -->
+      <div class="col-lg-4">
+
+        <!-- Recent Activity -->
+        <div class="card">
+          <div class="filter">
+            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+              <li class="dropdown-header text-start">
+                <h6>Filtro</h6>
+              </li>
+
+              <li><a class="dropdown-item" href="#">Hoy</a></li>
+              <li><a class="dropdown-item" href="#">Mes</a></li>
+              <li><a class="dropdown-item" href="#">Año</a></li>
+            </ul>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Actividad reciente <span>| Hoy</span></h5>
+
+            <div class="activity">
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">32 min</div>
+                <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                <div class="activity-content">
+                  Historial <a href="#" class="fw-bold text-dark">Descarga reporte</a>
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">56 min</div>
+                <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                <div class="activity-content">
+                  Modificación cliente #2202
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">2 hrs</div>
+                <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
+                <div class="activity-content">
+                  Registro de nuevo cliente
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">1 día</div>
+                <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
+                <div class="activity-content">
+                  Modificación <a href="#" class="fw-bold text-dark">foto de perfil</a>
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">4 semanas</div>
+                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
+                <div class="activity-content">
+                  Registro de nuevo administrador secundario
+                </div>
+              </div><!-- End activity item-->
+
+            </div>
+
+          </div>
+        </div><!-- End Recent Activity -->
+
+        <!-- Website Traffic -->
+        <div class="card">
+          <div class="filter">
+            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+              <li class="dropdown-header text-start">
+                <h6>Filtro</h6>
+              </li>
+
+              <li><a class="dropdown-item" href="#">Hoy</a></li>
+              <li><a class="dropdown-item" href="#">Mes</a></li>
+              <li><a class="dropdown-item" href="#">Año</a></li>
+            </ul>
+          </div>
+
+          <div class="card-body pb-0">
+            <h5 class="card-title">Servicios <span>| Hoy</span></h5>
+
+            <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                echarts.init(document.querySelector("#trafficChart")).setOption({
+                  tooltip: {
+                    trigger: 'item'
+                  },
+                  legend: {
+                    top: '5%',
+                    left: 'center'
+                  },
+                  series: [{
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                      show: false,
+                      position: 'center'
+                    },
+                    emphasis: {
+                      label: {
+                        show: true,
+                        fontSize: '18',
+                        fontWeight: 'bold'
+                      }
+                    },
+                    labelLine: {
+                      show: false
+                    },
+                    data: [{
+                        value: 1048,
+                        name: 'Planchado'
+                      },
+                      {
+                        value: 735,
+                        name: 'Tintoreria'
+                      },
+                      {
+                        value: 580,
+                        name: 'Lavado'
+                      },
+                      {
+                        value: 484,
+                        name: 'Secado'
+                      },
+                      {
+                        value: 300,
+                        name: 'Otros'
+                      }
+                    ]
+                  }]
+                });
+              });
+            </script>
+
+          </div>
+        </div><!-- End Website Traffic -->
+
+      </div><!-- End Right side columns -->
+
+    </div>
+  </section>
+{% endblock %}
